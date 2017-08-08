@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Task Orders</th>
+              <th>Last Login</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.role.name %></td>
+                <td><%= user.email %></td>
+                <td><%= TaskOrder.where(user_id:user.id).count %></td>
+                <td>
+                  <% unless user.last_sign_in_at == nil %>
+                    <%= user.last_sign_in_at.to_formatted_s(:long) %>
+                  <% else %>
+                    Never   
+                  <% end %>
+                </td>
+                <td><%= link_to 'View', user, class: "btn btn-default"  %></td>
+                <td>
+                  <% if can? :update, user %>
+                    <%= link_to 'Edit', edit_user_path(user), class: "btn btn-default"  %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if can? :destroy, user %>
+                    <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"  %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <p class="right"><%= link_to 'Create New User', new_user_path %></p>
+      </div>
+    </div>
+  </div>
+</div>

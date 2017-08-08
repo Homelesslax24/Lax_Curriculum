@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="jumbotron">
+		<h3><%=@user.username%></h3>
+		</br>
+
+		<div class="row">
+			<p class="col-xs-12 col-md-4">
+			  <strong>Email:</strong>
+			  <%= @user.email %>
+			</p>
+
+			<p class="col-xs-12 col-md-5">
+			  <strong>Last logged in on:</strong>
+			  <% unless @user.last_sign_in_at == nil or 0 %>
+          <%= @user.last_sign_in_at.to_formatted_s(:long) %>
+        <% else %>
+          Never   
+        <% end %>
+			</p>
+
+			</br>
+			 
+			<p class="center">
+				<% if can? :update, @user %>
+					<%= link_to 'Edit', edit_user_path(@user) %> |
+				<% end %>
+				<% if can? :update, @user %>
+					<%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %> |
+				<% end %>
+				<%= link_to 'Back', users_path %>
+			</p>
+		</div>	
+	</div>
+</div>

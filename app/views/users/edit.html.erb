@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="jumbotron">
+		<div class="row">
+			<h3>Edit <%=@user.username%></h3>
+			
+			</br>
+
+			<%= render 'form' %>
+
+			</br>
+			
+			<p class="center">
+				<%= link_to 'Show', @user %> |
+				<%= link_to 'Back', users_path %>
+			</p>
+		</div>	
+	</div>
+</div>

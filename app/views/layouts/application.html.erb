@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LaxFactory</title>
+    <title>Lax Factory</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   </head>
 
 <!-- Flash Message container -->
-<div class="container">
-  <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "row col-lg-8 col-lg-offset-1 alert alert-info first-item", style: "position:fixed;") do %>
-      <%= msg %>
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <% end %>
-  <% end %>
-</div>
 
   <body>
-    <%= yield %>
+    <div>
+      <%= render 'layouts/header' %>
+    </div>
+
+    <div class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "row col-xs-10 col-xs-offset-2 col-md-8 col-md-offset-2 alert alert-info first-item") do %>
+          <%= msg %>
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <div>
+      <%= yield %>
+    </div>
+  
+    <div>
+      <%= render 'layouts/footer' %>
+    </div>
+
   </body>
   
 </html>

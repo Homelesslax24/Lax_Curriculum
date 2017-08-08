@@ -1,2 +1,110 @@
+/* Sitewide Fonts, Bootstrap, and CSS */
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,900);
+
+$body-bg: 															#bdc3c7;
+$jumbotron-bg: 													white;
+$font-family-sans-serif:                'Lato', Helvetica, Arial, sans-serif;
+$font-size-base:												12px;
+$font-size-h2:													3.5em;
+
+$navbar-height:                        	45px;
+$navbar-default-bg: 										white;
+$navbar-default-link-hover-color: 			#EC1D25;
+$navbar-default-link-active-color:			#EC1D25;
+
+$brand-primary: 												#EC1D25;
+
+$btn-default-color:											#EC1D25;
+$btn-default-bg:												#ecf0f1;
+
+$grid-gutter-width:											15px;
+$grid-float-breakpoint:									1000px;
+
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+html, body {
+	height: 100%;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+body {
+  padding-top: 75px; 
+}
+
+h3 {
+	font-size: 28px;
+}
+
+th {
+	text-align: center;
+	font-size: 16px;
+	font-weight: 900;
+}
+
+td {
+	text-align: center;
+	font-size: 16px;
+}
+
+textarea { 
+	resize: none; 
+}
+
+.light {
+	font-weight: 300;
+}
+
+.heavy {
+	font-weight: 900;
+}
+
+.primary-color {
+	color: #EC1D25 !important;
+}
+
+.secondary-color {
+	color: #fff !important;
+	//#087B39
+}
+
+.center {
+	text-align:center;
+}
+
+.left {
+	text-align:left;
+}
+
+.right {
+	text-align:right;
+}
+
+.first-item {
+	margin-top: 15px;
+}
+
+.no-margin {
+	margin:0;
+}
+
+.no-margin-top {
+	margin-top:0;
+	margin-bottom:0;
+}
+
+.no-padding {
+	padding:0;
+}
+
+#footer {
+	background-color: white;
+	// position: fixed;
+ //  bottom: 0;
+ //  width: 100%
+}
+
+.footer {
+	padding: 30px;
+}
