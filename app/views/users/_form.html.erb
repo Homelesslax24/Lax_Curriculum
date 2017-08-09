@@ -35,9 +35,6 @@
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %></br>
-        <% if current_user == @user %>
-          <p>After changing your password, you will be asked to log in with your new password</p>
-        <% end %>
       </div>
 
       <div class="form-group col-xs-12 col-md-4">
@@ -56,9 +53,6 @@
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %></br>
-        <% if current_user == @user %>
-          <p>After changing your password, you will be asked to log in with your new password</p>
-        <% end %>
       </div>
 
       <div class="form-group col-xs-12 col-md-6">
@@ -67,9 +61,14 @@
       </div>
     <% end %>
   </div>   
+  <div class="row center">
+    <% if current_user == @user %>
+          <p>After changing your password, you will be asked to log in with your new password</p>
+    <% end %>
+  </div>
 
-    <div class="form-group right">
-      <%= f.submit "Save", class: "btn btn-success btn-lg" %>
-    </div> 
+  <div class="form-group right">
+    <%= f.submit "Save", class: "btn btn-success btn-lg" %>
+  </div> 
  
 <% end %>

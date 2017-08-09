@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807203320) do
+ActiveRecord::Schema.define(version: 20170809000436) do
+
+  create_table "drills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",                      default: "",    null: false
+    t.string   "link",                       default: "",    null: false
+    t.string   "embed",                      default: "",    null: false
+    t.string   "fundamentals",               default: "",    null: false
+    t.string   "tools",                      default: "",    null: false
+    t.string   "players",                    default: "",    null: false
+    t.text     "description",  limit: 65535
+    t.text     "beginner",     limit: 65535
+    t.text     "intermediate", limit: 65535
+    t.text     "advanced",     limit: 65535
+    t.boolean  "approved",                   default: false
+    t.integer  "user_id"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["user_id"], name: "index_drills_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username",               default: "",    null: false
@@ -32,4 +50,5 @@ ActiveRecord::Schema.define(version: 20170807203320) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "drills", "users"
 end
