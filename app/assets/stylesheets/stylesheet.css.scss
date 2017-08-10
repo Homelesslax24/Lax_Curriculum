@@ -50,6 +50,7 @@ td {
 
 textarea { 
 	resize: none; 
+	min-height: 300px;
 }
 
 .light {
@@ -100,13 +101,29 @@ textarea {
 
 #footer {
 	background-color: white;
-	position: absolute;
+	/*position: absolute;*/
   left: 0;
   bottom: 0;
   width: 100%;
-  overflow:hidden;
+  /*overflow:hidden;*/
 }
 
 .footer {
 	padding: 30px;
 }
+
+.drill_description {
+	min-height: 300px;
+}
+
+.drill_scale {
+	height: 300px;
+}
+
+.tall {
+	height: 100%;
+}
+
+
+
+

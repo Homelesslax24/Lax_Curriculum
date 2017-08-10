@@ -10,22 +10,25 @@ class DrillsController < ApplicationController
   # GET /drills/1
   # GET /drills/1.json
   def show
+    @user = User.all
   end
 
   # GET /drills/new
   def new
     @drill = Drill.new
+    @user = User.all
   end
 
   # GET /drills/1/edit
   def edit
+    @user = User.all
   end
 
   # POST /drills
   # POST /drills.json
   def create
     @drill = Drill.new(drill_params)
-
+    @drill.user_id = current_user.id
     respond_to do |format|
       if @drill.save
         format.html { redirect_to @drill, notice: 'Drill was successfully created.' }
@@ -69,6 +72,6 @@ class DrillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drill_params
-      params.fetch(:drill, {})
+      params.require(:drill).permit(:title, :link, :embed, :fundamentals, :tools, :players, :description, :beginner, :intermediate, :advanced, :approved)
     end
 end

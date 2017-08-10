@@ -22,7 +22,7 @@
                 <li><%= link_to "New User", new_user_path %></li>
                 <li><%= link_to "Manage Users", users_path %></li>
                 <li role="separator" class="divider"></li>
-                <li><%= link_to "Approve Drills", drills_path %></li>
+                <li><%= link_to "Manage Drills", drills_path %></li>
               </ul>
             </li>
           <% end %>
@@ -33,7 +33,9 @@
               <li role="separator" class="divider"></li>
               <li><%= link_to "Tenets", "#" %></li>
               <li><%= link_to "Development Plan", "#" %></li>
-              <li><%= link_to "Drills", "#" %></li>
+              <li><%= link_to "Drills", drills_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Submit a Drill", new_drill_path %></li>
             </ul>
           </li>
           <li class="dropdown">
