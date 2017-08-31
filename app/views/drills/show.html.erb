@@ -4,7 +4,7 @@
 		<p id="notice"><%= notice %></p>
 
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-xs-12 col-md-12">
 				<h3><strong><%= @drill.title %></strong></h3>
 			</div>
 			<div class="col-xs-12 col-md-4">
@@ -38,21 +38,6 @@
 				<p><strong>Created By: </strong><%= link_to @user.find_by_id(@drill.user_id).username, user_path(@drill.user_id) %></p>
 			</div>
 		</div>
-		<% if current_user.admin? %>
-			<br>
-			<div class="row">
-				<%= form_for(@drill) do |f| %>
-					<div class="form-group col-xs-12 col-md-2 col-md-offset-3">
-		        <p><%= f.label :approved %> &nbsp <%= f.check_box :approved %></p>
-		      </div>
-					<div class="form-group col-md-2 col-md-offset-2"">
-			      <%= f.submit "Submit", class: "btn btn-success btn-lg" %>
-			    </div>
-				<% end %>
-			</div>
-		<% end %>
-	</div>
-	<div class="jumbotron">
 		<div class="row">
 			<div class="col-sm-12">
 				<p class="center">

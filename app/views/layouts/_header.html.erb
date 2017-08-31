@@ -1,56 +1,40 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Lax Factory", "/", class: "navbar-brand heavy primary-color" %>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>  
-          <% if current_user.admin? %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Actions <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "New User", new_user_path %></li>
-                <li><%= link_to "Manage Users", users_path %></li>
-                <li role="separator" class="divider"></li>
-                <li><%= link_to "Manage Drills", drills_path %></li>
-              </ul>
-            </li>
-          <% end %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Home", root_path %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to "EO Culture", "#EO" %></li>
-              <li><%= link_to "Tenets", "#tenets" %></li>
-              <li><%= link_to "Development Plan", "#" %></li>
-              <li><%= link_to "Coaches Guide", "#" %></li>
-              <li><%= link_to "Glossary", "#" %></li>
-              <li><%= link_to "Drills", drills_path %></li>
-              <li><%= link_to "Playbook", "#" %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to "Submit a Drill", new_drill_path %></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <p class="navbar-text" style="display:inline-block;">Signed in as </p><a href="#" class="navbar-link dropdown-toggle" style="display:inline-block; padding-left:0;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %><span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Edit profile", edit_user_path(id:current_user.id) %></li>
-              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-            </ul>
-          </li>  
-        <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+<nav class="navbar navbar-expand-lg tall" id="side-navbar">
+	<ul class="nav nav-pills flex-column bg-dark" id="main-nav">
+		<%= link_to "Lax Factory", "/", class: "navbar-brand heavy primary-color" %>
+	  <% if user_signed_in? %>  
+	  	<li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+			<li class="nav-item"><%= link_to "EO Culture", "/EO", class: "nav-link" %></li>
+	    <li class="nav-item"><%= link_to "Tenets", tenets_path, class: "nav-link" %></li>
+	    <li class="nav-item"><%= link_to "Development Plan", "#", class: "nav-link" %></li>
+	    <li class="nav-item"><%= link_to "Coaches' Guide", "#", class: "nav-link" %></li>
+	    <li class="nav-item"><%= link_to "Glossary", "#", class: "nav-link" %></li>
+	    <li class="nav-item"><%= link_to "Drills", drills_path, class: "nav-link" %></li>
+	    <li class="nav-item"><%= link_to "Playbook", "#", class: "nav-link" %></li>
+			<li class="nav-item"><%= link_to "Submit a Drill", new_drill_path, class: "nav-link" %></li>
+			<% if current_user.admin? %>
+        <div id="navAccordionx" data-children=".adminitem">
+				  <div class="adminitem">
+				    <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-parent="#navAccordionx" href="#navAccordion0" aria-expanded="false" aria-controls="navAccordion0">Admin Actions<span class="caret"></span></a></li>
+				    <div id="navAccordion0" class="collapse" role="tabpanel">
+				      <p class="mb-3">
+		            <li class="nav-item"><%= link_to "New User", new_user_path, class: "nav-link" %></li>
+		            <li class="nav-item"><%= link_to "Manage Users", users_path, class: "nav-link" %></li>
+		            <li class="nav-item"><%= link_to "Manage Drills", drills_path, class: "nav-link" %></li>
+				      </p>
+				    </div>
+				  </div>
+				</div>
+      <% end %>
+			<div id="navAccordion" data-children=".signinitem">
+			  <div class="signinitem">
+			    <p class="navbar-text text-white">Signed in as &nbsp<a data-toggle="collapse" data-parent="#navAccordion" href="#navAccordion1" aria-expanded="false" aria-controls="navAccordion1"><%= current_user.username %><span class="caret"></span></a></p>
+			    <div id="navAccordion1" class="collapse" role="tabpanel">
+		        <li class="nav-item"><%= link_to "Edit profile", edit_user_path(id:current_user.id), class: "nav-link" %></li>
+	          <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-link" %></li>
+			    </div>
+			  </div>
+			</div>
+		<% end %>
+	</ul>
 </nav>
+

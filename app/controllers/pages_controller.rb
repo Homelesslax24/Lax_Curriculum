@@ -4,4 +4,10 @@ class PagesController < ApplicationController
 	def index
 	end
 
+	def tenets
+	end
+
+	def eo
+	end
+	
 end

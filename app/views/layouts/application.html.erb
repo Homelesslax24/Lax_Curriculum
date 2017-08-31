@@ -11,28 +11,34 @@
 
 <!-- Flash Message container -->
 
-  <body>
-    <div>
-      <%= render 'layouts/header' %>
-    </div>
+  <body class="bg-dark">
+    <div class="row">
+      <div class="col-md-2">
+        <div>
+          <%= render 'layouts/header' %>
+        </div>
+        <div id="footer">
+          <%= render 'layouts/footer' %>
+        </div>
+      </div>
 
-    <div class="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag(:div, msg, class: "row col-xs-10 col-xs-offset-2 col-md-8 col-md-offset-2 alert alert-info first-item") do %>
-          <%= msg %>
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <% end %>
-      <% end %>
-    </div>
-    
-    <div>
-      <%= yield %>
-    </div>
-  
-    <div>
-      <%= render 'layouts/footer' %>
+      <div class="col-md-10">
+        
+        <div class="container">
+          <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, class: "row col-xs-10 col-xs-offset-2 col-md-8 col-md-offset-2 alert alert-info first-item") do %>
+              <%= msg %>
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <% end %>
+          <% end %>
+        </div>
+        
+        <div>
+          <%= yield %>
+        </div>
+
+      </div>
     </div>
 
   </body>
-  
 </html>

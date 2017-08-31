@@ -1,79 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<% if current_user.admin? %>
-  <div class="container">
-    <div class="jumbotron">
-      <h3>Drills to be Approved</h3>
-      <div class="row">
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @drills.where(approved: false).each do |drill| %>
-                <tr>
-                  <td><%= drill.title %></td>
-                  <td><%= drill.description %></td>
-                  <td><%= link_to 'Review', drill %></td>
-                  <td><%= link_to 'Edit', edit_drill_path(drill) %></td>
-                  <td><%= link_to 'Destroy', drill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-
 <div class="container">
-  <div class="jumbotron">
-    <h3>Drills</h3>
-    <div class="row">
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Description</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
+	<h3 class="text-white">Drills</h3>
+	<% if can? :create, Drill %>
+    <p><%= link_to 'Create a Drill', new_drill_path %></p>
+  <% end %>
+	
+	<div class="card-deck">
+		<% @drills.where(approved: true).each do |drill| %>
+			<div class="card text-white bg-dark border-light mb-3" style="max-width: 20rem;">   
+				<%= image_tag "no_photo.svg", class: "card-img-top", alt: "Card image cap"%>
+		    <div class="card-body">
+		      <h4 class="card-title"><%= drill.title %></h4>
+		      <p class="card-text"><%= drill.description %></p>
+		      <%= link_to 'Read More...', drill, class: "btn btn-primary", style: "margin-bottom:15px;"%>
+	      	<% if can? :manage, drill %>
+	      		<ul class="list-group list-group-flush text-center">
+	            <li class="list-group-item"><%= link_to 'Edit', edit_drill_path(drill) %> |
+              <%= link_to 'Destroy', drill, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          <% end %>
+		    </div>
+		    <div class="card-footer">
+		      <small class="text-muted"><%= drill.fundamentals %></small>
+		    </div>
+		  </div>
+		<% end %>
+	</div>
 
-          <tbody>
-            <% @drills.where(approved: true).each do |drill| %>
-              <tr>
-                <td><%= drill.title %></td>
-                <td><%= drill.description %></td>
-                <td><%= link_to 'View', drill, class: "btn btn-default" %></td>
-                  <td>
-                    <% if can? :update, drill %>
-                      <%= link_to 'Edit', edit_drill_path(drill), class: "btn btn-default"  %>
-                    <% end %>
-                  </td>
-                  <td>
-                    <% if can? :destroy, drill %>
-                      <%= link_to 'Destroy', drill, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"  %>
-                    <% end %>
-                  </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-
-        <br>
-        <% if can? :create, Drill %>
-          <p class="right"><%= link_to 'Create a Drill', new_drill_path %></p>
-        <% end %>
-      </div>
-    </div>
-  </div>
 </div>
-
