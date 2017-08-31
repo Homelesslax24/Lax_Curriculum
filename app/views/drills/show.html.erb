@@ -1,24 +1,8 @@
 <div class="container">
 	<div class="jumbotron">
-		
-		<p id="notice"><%= notice %></p>
-
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
 				<h3><strong><%= @drill.title %></strong></h3>
-			</div>
-			<div class="col-xs-12 col-md-4">
-				<p><strong>Fundamentals: </strong><%= @drill.fundamentals %></p>
-			</div>
-			<div class="col-xs-12 col-md-4">
-				<p><strong>Tools: </strong><%= @drill.tools %></p>
-			</div>
-			<div class="col-xs-12 col-md-4">
-				<p><strong>Players: </strong>
-				<% @drill.positions.each do |p| %>
-					<%= p.name %>, 
-				<% end %>
-				</p>
 			</div>
 			<div class="col-xs-12 col-md-12">
 				<p><strong>Description: </strong><%= @drill.description %></p>
@@ -31,6 +15,23 @@
 			</div>
 			<div class="col-xs-12 col-md-12">
 				<p><strong>Advanced: </strong><%= @drill.advanced %></p>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<p><strong>Fundamentals: </strong><%= @drill.fundamentals %></p>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<p><strong>Tools: </strong>
+					<% @drill.tools.each do |t| %>
+						<%= t.name %>, 
+					<% end %>
+				</p>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<p><strong>Players: </strong>
+					<% @drill.positions.each do |p| %>
+						<%= p.name %>, 
+					<% end %>
+				</p>
 			</div>
 			<div class="col-xs-12 col-md-4">
 				<p><strong>Link: </strong><%= link_to @drill.link, @drill.link %></p>

@@ -46,12 +46,18 @@
       <%= f.text_field :fundamentals, class: "form-control", autofocus: true, placeholder:"Which fundamentals does this enforce?"  %>
     </div>
     <div class="form-group col-xs-12 col-md-4">
-      <%= f.label :tools %><br>
-      <%= f.text_field :tools, class: "form-control", autofocus: true, placeholder:"What do you need to do this drill?"  %>
+      <%= f.label "What do you need to do this drill?" %><br />
+      <small class="text-muted">Select all that apply</small>
+      <%= f.collection_check_boxes :tool_ids, Tool.all, :id, :name do |a| %>
+        <div class="collection-check-box">
+          <%= a.check_box %>
+          <%= a.label %>
+        </div>
+      <% end %>
     </div>
     <div class="form-group col-xs-12 col-md-4">
-      <%= f.label "Required Player Groups:" %><br />
-      <p><small class="text-muted">Select all that apply</small></p>
+      <%= f.label "Who should do this drill?" %><br />
+      <small class="text-muted">Select all that apply</small>
       <%= f.collection_check_boxes :position_ids, Position.all, :id, :name do |b| %>
         <div class="collection-check-box">
           <%= b.check_box %>
