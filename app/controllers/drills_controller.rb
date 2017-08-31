@@ -17,7 +17,6 @@ class DrillsController < ApplicationController
   def new
     @drill = Drill.new
     @user = User.all
-    @players_select = ['Attack', 'Midfield', 'Defense', 'Goalie', 'LSM', 'SSDM', 'FOGO', 'Offense', 'Defense', 'EMO', 'EMD']
   end
 
   # GET /drills/1/edit
@@ -73,6 +72,6 @@ class DrillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drill_params
-      params.require(:drill).permit(:title, :link, :embed, :fundamentals, :tools, :players, :description, :beginner, :intermediate, :advanced, :approved)
+      params.require(:drill).permit(:title, :link, :embed, :fundamentals, :tools, :description, :beginner, :intermediate, :advanced, :approved, position_ids:[])
     end
 end

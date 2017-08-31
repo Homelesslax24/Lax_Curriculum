@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
 	<h3 class="text-white">Drills</h3>
 	<% if can? :create, Drill %>
@@ -44,7 +42,12 @@
 			<div class="card mb-3" style="max-width: 20rem;">   
 				<%= image_tag "no_photo.svg", class: "card-img-top", alt: "Card image cap"%>
 		    <div class="card-body">
-		      <h4 class="card-title"><%= drill.title %></h4>
+		      <h4 class="card-title"><%= drill.title %><br />
+		      <small class="text-muted" style="font-size:.75rem;">
+						<% drill.positions.each do |p| %>
+							<%= p.name %> | 
+						<% end %>
+					</small></h4>
 		      <p class="card-text"><%= drill.description %></p>
 		      <%= link_to 'Read More...', drill, class: "btn btn-primary", style: "margin-bottom:15px;"%>
 	      	<% if can? :manage, drill %>

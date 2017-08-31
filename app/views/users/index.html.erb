@@ -45,10 +45,12 @@
           </tbody>
         </table>
 
-        <br>
+        <br />
+        
         <% if can? :create, User %>     
           <p class="right"><%= link_to 'Create New User', new_user_path, class: "btn btn-default" %></p>
         <% end %>
+
       </div>
     </div>
   </div>

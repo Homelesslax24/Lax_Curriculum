@@ -8,6 +8,7 @@ class Ability
       if user.admin?
         can :manage, User
         can :manage, Drill
+        can :manage, Position
       else
         can :read, User
         can [:read, :create], Drill
