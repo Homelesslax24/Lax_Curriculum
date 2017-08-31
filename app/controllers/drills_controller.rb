@@ -17,6 +17,7 @@ class DrillsController < ApplicationController
   def new
     @drill = Drill.new
     @user = User.all
+    @players_select = ['Attack', 'Midfield', 'Defense', 'Goalie', 'LSM', 'SSDM', 'FOGO', 'Offense', 'Defense', 'EMO', 'EMD']
   end
 
   # GET /drills/1/edit
