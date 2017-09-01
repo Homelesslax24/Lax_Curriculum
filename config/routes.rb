@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fundamentals
   resources :tools
   resources :positions
   devise_for :users
@@ -6,7 +7,8 @@ Rails.application.routes.draw do
 	root "pages#index"
 	get '/tenets', to: 'pages#tenets'
 	get '/EO', to: 'pages#eo'
-	
+	# get '/lists', to: 'pages#lists'
+
 	resources :users
 	
 	resources :drills

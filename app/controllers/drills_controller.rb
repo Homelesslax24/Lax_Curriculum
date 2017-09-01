@@ -72,6 +72,6 @@ class DrillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drill_params
-      params.require(:drill).permit(:title, :link, :embed, :fundamentals, :description, :beginner, :intermediate, :advanced, :approved, position_ids:[], tool_ids:[])
+      params.require(:drill).permit(:title, :link, :embed, :description, :beginner, :intermediate, :advanced, :approved, position_ids:[], tool_ids:[], fundamental_ids:[])
     end
 end

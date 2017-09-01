@@ -1,6 +1,6 @@
 <%= form_for(drill) do |f| %>
   <% if drill.errors.any? %>
-    <div class="row col-lg-10 col-lg-offset-1 alert alert-info first-item"id="error_explanation">
+    <div class="row col-lg-10 col-lg-offset-1 alert alert-info first-item" id="error_explanation">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(drill.errors.count, "error") %> prohibited this drill from being saved:</h2>
 
@@ -42,8 +42,14 @@
       <%= f.text_area :advanced, class: "form-control drill_scale", autofocus: true, placeholder:"How would you scale this for advanced players?"  %>
     </div>
     <div class="form-group col-xs-12 col-md-4">
-      <%= f.label :fundamentals %><br>
-      <%= f.text_field :fundamentals, class: "form-control", autofocus: true, placeholder:"Which fundamentals does this enforce?"  %>
+      <%= f.label "Which fundamentals does this enforce?" %><br />
+      <small class="text-muted">Select all that apply</small>
+      <%= f.collection_check_boxes :fundamental_ids, Fundamental.all, :id, :name do |z| %>
+        <div class="collection-check-box">
+          <%= z.check_box %>
+          <%= z.label %>
+        </div>
+      <% end %>
     </div>
     <div class="form-group col-xs-12 col-md-4">
       <%= f.label "What do you need to do this drill?" %><br />
@@ -79,6 +85,6 @@
     <% end %>
   </div>
   <div class="form-group">
-    <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,6 +1,12 @@
-<h1>Editing Tool</h1>
+<div class="container">
+  <div class="jumbotron">
+  	<h3>Editing Tool</h3>
 
-<%= render 'form', tool: @tool %>
+		<%= render 'form', tool: @tool %>
 
-<%= link_to 'Show', @tool %> |
-<%= link_to 'Back', tools_path %>
+		<div class="text-center">
+			<%= link_to 'Show', @tool %> |
+			<%= link_to 'Back', tools_path %>
+		</div>
+	</div>
+</div>

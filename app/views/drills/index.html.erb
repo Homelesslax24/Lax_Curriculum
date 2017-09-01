@@ -4,7 +4,7 @@
     <p><%= link_to 'Create a Drill', new_drill_path %></p>
   <% end %>
 	
-	<% if current_user.admin? %>
+	<% if current_user.admin? and @drills.where(approved: false).count > 0 %>
 	  <div class="container">
 	    <div class="jumbotron">
 	      <h3>Drills to be Approved</h3>
@@ -40,7 +40,11 @@
 	<div class="card-deck">
 		<% @drills.where(approved: true).each do |drill| %>
 			<div class="card mb-3" style="max-width: 20rem;">   
-				<%= image_tag "no_photo.svg", class: "card-img-top", alt: "Card image cap"%>
+				<% unless drill.link == "N/A" %>
+					 <iframe width="318" height="318" src=<%= drill.link %> frameborder="0" allowfullscreen class="card-img-top"></iframe>
+				<% else %>
+					<%= image_tag "no_photo.svg", class: "card-img-top", alt: "Card image cap"%>
+				<% end %>
 		    <div class="card-body">
 		      <h4 class="card-title"><%= drill.title %><br />
 		      <small class="text-muted" style="font-size:.75rem;">
@@ -58,7 +62,11 @@
           <% end %>
 		    </div>
 		    <div class="card-footer">
-		      <small class="text-muted"><%= drill.fundamentals %></small>
+		      <small class="text-muted">
+		      	<% drill.fundamentals.each do |f| %>
+							<%= f.name %> | 
+						<% end %>
+					</small>
 		    </div>
 		  </div>
 		<% end %>

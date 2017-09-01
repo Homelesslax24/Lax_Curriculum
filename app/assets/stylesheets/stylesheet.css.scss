@@ -55,8 +55,6 @@ nav a:hover, #footer a:hover {
 	color:yellow;
 }
 
-
-
 .light {
 	font-weight: 300;
 }
@@ -118,10 +116,10 @@ nav a:hover, #footer a:hover {
 
 .nav-link:hover {
 	color: yellow;
-	border-left-style:solid;
+	border-left-style: solid;
 	border-width: 3px;
 	border-color: yellow;
-	padding-left:13px;
+	padding-left: 13px;
 }
 
 .current {
@@ -156,8 +154,18 @@ nav a:hover, #footer a:hover {
 	margin:32px 16px;
 }
 
+.card-header a {
+	color:black;
+	text-decoration: none;
+	padding-left: 13px;
+}
 
-
+.card-header a:hover {
+	text-decoration: none;
+	border-left-style: solid;
+	border-left-width: 3px;
+	padding-left: 10px;
+}
 
 
 

@@ -9,6 +9,8 @@ class Ability
         can :manage, User
         can :manage, Drill
         can :manage, Position
+        can :manage, Tool
+        can :manage, Fundamental
       else
         can :read, User
         can [:read, :create], Drill

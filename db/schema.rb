@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831151537) do
+ActiveRecord::Schema.define(version: 20170901015103) do
 
   create_table "Drills_Positions", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "drill_id",    null: false
@@ -21,9 +21,6 @@ ActiveRecord::Schema.define(version: 20170831151537) do
     t.string   "title",                      default: "",    null: false
     t.string   "link",                       default: "",    null: false
     t.string   "embed",                      default: "",    null: false
-    t.string   "fundamentals",               default: "",    null: false
-    t.string   "tools",                      default: "",    null: false
-    t.string   "players",                    default: "",    null: false
     t.text     "description",  limit: 65535
     t.text     "beginner",     limit: 65535
     t.text     "intermediate", limit: 65535
@@ -35,9 +32,20 @@ ActiveRecord::Schema.define(version: 20170831151537) do
     t.index ["user_id"], name: "index_drills_on_user_id", using: :btree
   end
 
+  create_table "drills_fundamentals", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "drill_id",       null: false
+    t.integer "fundamental_id", null: false
+  end
+
   create_table "drills_tools", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "drill_id", null: false
     t.integer "tool_id",  null: false
+  end
+
+  create_table "fundamentals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "positions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

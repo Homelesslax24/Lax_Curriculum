@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="col-xs-12 col-md-4">
+	  <div class="jumbotron">
+	    <h3>Manage Fundamentals</h3>
+	    <% if can? :create, Fundamental %> 
+	      <p><%= link_to 'New Fundamental', new_fundamental_path %></p>
+	    <% end %>
+	    <div class="row">
+	      <div class="table-responsive">
+	        <table class="table table-sm table-hover">
+	          <thead>
+	            <tr>
+	              <th>Name</th>
+	              <th colspan="3"></th>
+	            </tr>
+	          </thead>
+
+	          <tbody>
+	            <% @fundamentals.each do |fundamental| %>
+	              <tr>
+	                <td class="left"><%= fundamental.name %></td>
+	                <td><%= link_to 'Show', fundamental, class: "btn btn-default"  %></td>
+	                <td>
+	                  <% if can? :update, Fundamental %>
+	                    <%= link_to 'Edit', edit_fundamental_path(fundamental), class: "btn btn-default"  %>
+	                  <% end %>   
+	                </td>
+	                <td>
+	                  <% if can? :destroy, Fundamental %>
+	                    <%= link_to 'Destroy', fundamental, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"  %>
+	                  <% end %>    
+	                </td>
+	              </tr>
+	            <% end %>
+	          </tbody>
+	        </table>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="col-xs-12 col-md-4">
+		<div class="jumbotron">
+	    <h3>Manage Tools</h3>
+	    <% if can? :create, Tool %>
+	      <p><%= link_to 'New Tool', new_tool_path %></p>
+	    <% end %>
+	    <div class="row">
+	      <div class="table-responsive">
+	        <table class="table table-sm table-hover">
+	          <thead>
+	            <tr>
+	              <th>Name</th>
+	              <th colspan="3"></th>
+	            </tr>
+	          </thead>
+
+	          <tbody>
+	            <% @tools.each do |tool| %>
+	              <tr>
+	                <td><%= tool.name %></td>
+	                <td><%= link_to 'Show', tool, class: "btn btn-default" %></td>
+	                <td>
+	                  <% if can? :update, Tool %>
+	                    <%= link_to 'Edit', edit_tool_path(tool), class: "btn btn-default" %>
+	                  <% end %>
+	                </td>
+	                <td>
+	                  <% if can? :destroy, Tool %>
+	                    <%= link_to 'Destroy', tool, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"%>
+	                  <% end %>
+	                </td>
+	              </tr>
+	            <% end %>
+	          </tbody>
+	        </table>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+  <div class="col-xs-12 col-md-4">
+	  <div class="jumbotron">
+	    <h3>Manage Positions</h3>
+	    <% if can? :create, Position %> 
+	      <p><%= link_to 'New Position', new_position_path %></p>
+	    <% end %>
+	    <div class="row">
+	      <div class="table-responsive">
+	        <table class="table table-sm table-hover">
+	          <thead>
+	            <tr>
+	              <th>Name</th>
+	              <th colspan="3"></th>
+	            </tr>
+	          </thead>
+
+	          <tbody>
+	            <% @positions.each do |position| %>
+	              <tr>
+	                <td><%= position.name %></td>
+	                <td><%= link_to 'View', position, class: "btn btn-default" %></td>
+	                <td>
+	                  <% if can? :update, Position %>
+	                    <%= link_to 'Edit', edit_position_path(position), class: "btn btn-default" %>
+	                  <% end %>
+	                </td>
+	                <td>
+	                  <% if can? :destroy, Position %>
+	                    <%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+	                  <% end %>
+	                </td>
+	              </tr>
+	            <% end %>
+	          </tbody>
+	        </table>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>

@@ -1,8 +1,10 @@
 <div class="container">
   <div class="jumbotron">
-    
-      <h3>Manage Positions</h3>
-      <div class="row">
+    <h3>Manage Positions</h3>
+    <% if can? :create, Position %> 
+      <p><%= link_to 'New Position', new_position_path %></p>
+    <% end %>
+    <div class="row">
       <div class="table-responsive">
         <table class="table table-sm table-hover">
           <thead>
@@ -31,13 +33,6 @@
             <% end %>
           </tbody>
         </table>
-
-        <br>
-
-        <% if can? :create, Position %> 
-          <p><%= link_to 'New Position', new_position_path %></p>
-        <% end %>
-
       </div>
     </div>
   </div>
