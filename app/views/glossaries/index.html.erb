@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="jumbotron">
+    <h3>Glossary</h3>
+      <p>
+        <% if can? :create, Glossary %> 
+          <%= link_to 'New Definition', new_glossary_path %>
+        <% end %>
+      </p>
+    
+    <div class="col">
+      <% @glossaries.each do |glossary| %>
+        <p>
+          <strong><%= link_to glossary.word, glossary %> - </strong> <%= glossary.definition %>
+          <% if can? :update, Glossary %>
+            <%= link_to 'Edit', edit_glossary_path(glossary) %>
+          <% end %>
+          <% if can? :destroy, Glossary %>
+            <%= link_to 'Destroy', glossary, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ class Ability
         can :manage, Position
         can :manage, Tool
         can :manage, Fundamental
+        can :manage, Glossary
       else
         can :read, User
         can [:read, :create], Drill

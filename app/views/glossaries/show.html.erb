@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="jumbotron">
+		<h3><strong><%= @glossary.word %></strong></h3>
+
+		<p>
+		  <%= @glossary.definition %>
+		</p>
+
+		<div class="text-center">
+			<%= link_to 'Edit', edit_glossary_path(@glossary) %> |
+			<%= link_to 'Back', glossaries_path %>
+		</div>
+	</div>
+</div>

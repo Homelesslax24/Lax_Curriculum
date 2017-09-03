@@ -5,11 +5,11 @@
 	  	<li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
 			<li class="nav-item"><%= link_to "EO Culture", "/EO", class: "nav-link" %></li>
 	    <li class="nav-item"><%= link_to "Tenets", tenets_path, class: "nav-link" %></li>
-	    <li class="nav-item"><%= link_to "Development Plan", "#", class: "nav-link" %></li>
-	    <li class="nav-item"><%= link_to "Coaches' Guide", "#", class: "nav-link" %></li>
-	    <li class="nav-item"><%= link_to "Glossary", "#", class: "nav-link" %></li>
+	    <li class="nav-item"><%= link_to "Development Plan", "#", class: "nav-link disabled" %></li>
+	    <li class="nav-item"><%= link_to "Coaches' Guide", "#", class: "nav-link disabled" %></li>
+	    <li class="nav-item"><%= link_to "Glossary", glossaries_path, class: "nav-link" %></li>
 	    <li class="nav-item"><%= link_to "Drills", drills_path, class: "nav-link" %></li>
-	    <li class="nav-item"><%= link_to "Playbook", "#", class: "nav-link" %></li>
+	    <li class="nav-item"><%= link_to "Playbook", "#", class: "nav-link disabled" %></li>
 			<li class="nav-item"><%= link_to "Submit a Drill", new_drill_path, class: "nav-link" %></li>
 			<% if current_user.admin? %>
         <div id="navAccordionx" data-children=".adminitem">
