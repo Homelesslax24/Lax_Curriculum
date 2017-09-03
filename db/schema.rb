@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902131806) do
-
-  create_table "Drills_Positions", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "drill_id",    null: false
-    t.integer "position_id", null: false
-  end
+ActiveRecord::Schema.define(version: 20170903153306) do
 
   create_table "drills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                      default: "",    null: false
@@ -35,6 +30,11 @@ ActiveRecord::Schema.define(version: 20170902131806) do
   create_table "drills_fundamentals", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "drill_id",       null: false
     t.integer "fundamental_id", null: false
+  end
+
+  create_table "drills_positions", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "drill_id",    null: false
+    t.integer "position_id", null: false
   end
 
   create_table "drills_tools", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
