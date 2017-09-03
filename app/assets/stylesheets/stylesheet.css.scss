@@ -7,13 +7,6 @@ $font-size-base:												1rem;
 $font-size-h2:													3.5em;
 
 $navbar-height:                        	2.813rem;
-$navbar-default-link-hover-color: 			#EC1D25;
-$navbar-default-link-active-color:			#EC1D25;
-
-$brand-primary: 												#EC1D25;
-
-$btn-default-color:											#EC1D25;
-$btn-default-bg:												#ecf0f1;
 
 $grid-gutter-width:											0.9375rem;
 $grid-float-breakpoint:									1000px;
@@ -51,8 +44,17 @@ textarea {
 	min-height: 300px;
 }
 
+nav a, #footer a {
+	color:white;
+	text-decoration: underline;
+}
+
 nav a:hover, #footer a:hover {
 	color:yellow;
+}
+
+.nav-link, .navbar-brand {
+	text-decoration:none;
 }
 
 .light {
@@ -64,7 +66,7 @@ nav a:hover, #footer a:hover {
 }
 
 .primary-color {
-	color: #EC1D25 !important;
+	color: yellow !important;
 }
 
 .secondary-color {
@@ -137,11 +139,6 @@ nav a:hover, #footer a:hover {
   left: 15px;
   bottom: 0%;
   font-size: .85rem;
-}
-
-#footer a {
-	color:white;
-	text-decoration: underline;
 }
 
 #eo {

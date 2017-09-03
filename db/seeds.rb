@@ -54,18 +54,18 @@ g9 = Glossary.create({word:"The Island/5x5", definition:"5 yards up from GLE and
 g10 = Glossary.create({word:"Gilman", definition:"Goalie or Defenseman throws the ball deep, to an offensive corner of the field in an effort to clear the ball.  Only done as a last resort."})
 g11 = Glossary.create({word:"Alley", definition:"The lanes outside the island on either side of the field.  Less dangerous areas.  Bad angles for shooters.  Direction in which dodgers are typically transferring the ball to the attackmen so they can attack the weak side of the defense."}) 
 
-# d1 = Drill.create({title: "Two Line Shooting", link:"N/A", embed:"N/A", 
-# 	description:"Players form two lines tangent to the crease, 8-10 yards above GLE.  Players receive a pass from the opposite line and shoot.  The focus is on fundamental, overhand, high to low shots with full velocity.", 
-# 	beginner:"Use one line.  Have a coach help each player into the correct shooting position.  Have the coach toss the ball by hand to mitigate any catching issues.  Have each player do three to five repetitions in a row, with feedback in between to lock in the motor pattern.", 
-# 	intermediate:"Use shooting targets to encourage players to shoot hard to spots.  Encourage them to shoot with both hands (in the appropriate lines).", 
-# 	advanced: "Encourage players to shoot for \"corners or nothing\".   Allow players to choose how they change planes (low to high or high to low).", 
-# 	approved: true, user_id: 1,})
-# d2 = Drill.create({title: "Piston Shooting", link: "https://www.youtube.com/embed/YGJL5nDTnMU?rel=0", embed: "<iframe width=\"560\" height=\"315\" src=\"https://www....", 
-# 	description: "Start two lines of dodgers at the top corners of the restraining box.  Put the first two players from each line on the crease.  The dodgers perform a hign wing dodge down the alley.  They act as though a slide has come and step away.  The first player on the crease \"C\" cuts into space.  The dodger feeds the crease player for a shot.", 
-# 	beginner: "Set up cones to encourage players to dodge and cut to the correct spots.  Encourage proper mechanics in the dodge, feed, cut, and shot.", 
-# 	intermediate: "Encourage players to shoot for the back third of the cage.", 
-# 	advanced: "Add speed and accuracy.   Have players shoot at targets.", 
-# 	approved: true, user_id: 1})
+d1 = Drill.create({title: "Two Line Shooting", link:"N/A", embed:"N/A", 
+	description:"Players form two lines tangent to the crease, 8-10 yards above GLE.  Players receive a pass from the opposite line and shoot.  The focus is on fundamental, overhand, high to low shots with full velocity.", 
+	beginner:"Use one line.  Have a coach help each player into the correct shooting position.  Have the coach toss the ball by hand to mitigate any catching issues.  Have each player do three to five repetitions in a row, with feedback in between to lock in the motor pattern.", 
+	intermediate:"Use shooting targets to encourage players to shoot hard to spots.  Encourage them to shoot with both hands (in the appropriate lines).", 
+	advanced: "Encourage players to shoot for \"corners or nothing\".   Allow players to choose how they change planes (low to high or high to low).", 
+	approved: true, user_id: 1,})
+d2 = Drill.create({title: "Piston Shooting", link: "https://www.youtube.com/embed/YGJL5nDTnMU?rel=0", embed: "<iframe width=\"560\" height=\"315\" src=\"https://www....", 
+	description: "Start two lines of dodgers at the top corners of the restraining box.  Put the first two players from each line on the crease.  The dodgers perform a hign wing dodge down the alley.  They act as though a slide has come and step away.  The first player on the crease \"C\" cuts into space.  The dodger feeds the crease player for a shot.", 
+	beginner: "Set up cones to encourage players to dodge and cut to the correct spots.  Encourage proper mechanics in the dodge, feed, cut, and shot.", 
+	intermediate: "Encourage players to shoot for the back third of the cage.", 
+	advanced: "Add speed and accuracy.   Have players shoot at targets.", 
+	approved: true, user_id: 1})
 
 
 
