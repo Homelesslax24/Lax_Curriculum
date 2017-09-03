@@ -14,7 +14,7 @@
 			  <%= @user.team %>
 			</p>
 
-			<p class="col-xs-12 col-md-3">
+			<p class="col-xs-12 col-md-2">
 			  <strong>Admin:</strong>
 			  <% if @user.admin? %>
 			  	Yes
@@ -23,9 +23,9 @@
 			  <% end %>	
 			</p>
 
-			<p class="col-xs-12 col-md-3">
+			<p class="col-xs-12 col-md-4">
 			  <strong>Last logged in on:</strong>
-			  <% unless @user.last_sign_in_at == nil or 0 %>
+			  <% unless @user.last_sign_in_at == nil %>
           <%= @user.last_sign_in_at.to_formatted_s(:long) %>
         <% else %>
           Never   
