@@ -42,11 +42,7 @@ class UsersController < ApplicationController
       user_params.delete(:password_confirmation)
     end
 
-    successfully_updated = if needs_password?(@user, user_params)
-                             @user.update(user_params)
-                           else
-                             @user.update_without_password(user_params)
-                           end
+    successfully_updated = @user.update_without_password(user_params)
 
     respond_to do |format|
       if successfully_updated
