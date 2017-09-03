@@ -10,6 +10,7 @@
               <th>Team</th>
               <th>Email</th>
               <th>Drills</th>
+              <th>Admin</th>
               <th>Last Login</th>
               <th colspan="3"></th>
             </tr>
@@ -22,6 +23,13 @@
                 <td><%= user.team %></td>
                 <td><%= user.email %></td>
                 <td><%= Drill.where(user_id:user.id).count %></td>
+                <td>
+                  <% if user.admin? %>
+                    Yes
+                  <% else %>
+                    No
+                  <% end %>
+                </td>
                 <td>
                   <% unless user.last_sign_in_at == nil %>
                     <%= user.last_sign_in_at.to_formatted_s(:long) %>
