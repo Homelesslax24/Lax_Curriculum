@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-5">
 				<h3><strong><%= @drill.title %></strong></h3>
-				<p><strong>Link: </strong><%= link_to "Click here for the video", @drill.link, target: "_blank" %><br />
+				<!-- <p><strong>Link: </strong><%= link_to "Click here for the video", @drill.link, target: "_blank" %><br /> -->
 				<strong>Created By: </strong><%= link_to @user.find_by_id(@drill.user_id).username, user_path(@drill.user_id) %></p>
 			</div>
 			<div class="col-xs-12 col-md-12">
@@ -47,7 +47,9 @@
 			<% end %>
 			<% unless @drill.link == "N/A" %>
 				<div class="col-xs-12 col-md-7">
-					<iframe width="560" height="315" src=<%= @drill.link %> frameborder="0" allowfullscreen></iframe>
+					<div class="video-container">
+						<iframe width="560" height="315" src=<%= @drill.link %> frameborder="0" allowfullscreen></iframe>
+					</div>
 				</div>
 			<% end %>
 		</div>
