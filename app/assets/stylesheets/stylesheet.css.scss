@@ -44,17 +44,21 @@ textarea {
 	min-height: 300px;
 }
 
-nav a, #footer a {
+nav a, #footer a, #alt-footer a {
 	color:white;
 	text-decoration: underline;
 }
 
-nav a:hover, #footer a:hover {
+nav a:hover, #footer a:hover, #alt-footer a:hover {
 	color:yellow;
 }
 
 .nav-link, .navbar-brand {
 	text-decoration:none;
+}
+
+.navbar-brand {
+	width:100%;
 }
 
 .light {
@@ -108,11 +112,12 @@ nav a:hover, #footer a:hover {
 }
 
 #main-nav {
-	position:fixed;
-	top:2%;
+	position:relative;
+	z-index: 5;
+	background-color:#343A40;
 }
 
-.nav-link {
+.navbar-dark .navbar-nav .nav-link {
 	color:white;
 }
 
@@ -121,7 +126,7 @@ nav a:hover, #footer a:hover {
 	border-left-style: solid;
 	border-width: 3px;
 	border-color: yellow;
-	padding-left: 13px;
+	padding-left: 5px !important;
 }
 
 .current {
@@ -131,7 +136,13 @@ nav a:hover, #footer a:hover {
 	border-width: 3px;
 	border-color: yellow;
 	border-radius: 10px;
-	padding-left:13px;
+	padding-left:5px;
+}
+
+#main-content {
+	position:relative;
+	padding-bottom:35px;
+	z-index:2;
 }
 
 #footer {
@@ -139,6 +150,28 @@ nav a:hover, #footer a:hover {
   left: 15px;
   bottom: 0%;
   font-size: .85rem;
+}
+
+#alt-footer {
+	position:fixed;
+  bottom: 0%;
+  left:20%;
+  font-size: .85rem;
+  width:75%;
+}
+
+.show-tablet {
+	display:none;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+.hidden-tablet {
+	display:none;
+}
+
+.show-tablet {
+  display:inherit;
+}
 }
 
 #eo {

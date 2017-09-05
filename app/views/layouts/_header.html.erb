@@ -1,42 +1,58 @@
-<nav class="navbar navbar-expand-lg tall" id="side-navbar">
-	<ul class="nav flex-column bg-dark" id="main-nav">
-		<%= link_to "Lax Factory", "/", class: "navbar-brand heavy primary-color" %>
-	  <% if user_signed_in? %>  
-	  	<li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
-			<li class="nav-item"><%= link_to "EO Culture", "/EO", class: "nav-link" %></li>
-	    <li class="nav-item"><%= link_to "Tenets", tenets_path, class: "nav-link" %></li>
-	    <li class="nav-item"><%= link_to "Development Plan", "#", class: "nav-link disabled" %></li>
-	    <li class="nav-item"><%= link_to "Coaches' Guide", "#", class: "nav-link disabled" %></li>
-	    <li class="nav-item"><%= link_to "Glossary", glossaries_path, class: "nav-link" %></li>
-	    <li class="nav-item"><%= link_to "Drills", drills_path, class: "nav-link" %></li>
-	    <li class="nav-item"><%= link_to "Playbook", "#", class: "nav-link disabled" %></li>
-			<li class="nav-item"><%= link_to "Submit a Drill", new_drill_path, class: "nav-link" %></li>
-			<% if current_user.admin? %>
-        <div id="navAccordionx" data-children=".adminitem">
-				  <div class="adminitem">
-				    <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-parent="#navAccordionx" href="#navAccordion0" aria-expanded="false" aria-controls="navAccordion0">Admin Actions<span class="caret"></span></a></li>
-				    <div id="navAccordion0" class="collapse" role="tabpanel">
-				      <p class="mb-3">
-		            <li class="nav-item"><%= link_to "Manage Users", users_path, class: "nav-link" %></li>
-		            <li class="nav-item"><%= link_to "Manage Drills", drills_path, class: "nav-link" %></li>
-		            <li class="nav-item"><%= link_to "Manage Fundamentals", fundamentals_path, class: "nav-link" %></li>
-		            <li class="nav-item"><%= link_to "Manage Tools", tools_path, class: "nav-link" %></li>
-		            <li class="nav-item"><%= link_to "Manage Positions", positions_path, class: "nav-link" %></li>
-				      </p>
+<!-- 
+		<ul class="nav flex-column bg-dark" id="main-nav">
+</nav> -->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="main-nav">
+  
+  <button class="navbar-toggler" style="color:yellow" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav flex-column mr-auto mt-2 mt-lg-0">
+    	<%= link_to "Lax Factory", "/", class: "navbar-brand heavy primary-color" %>
+		  <% if user_signed_in? %>  
+		  	<li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+				<li class="nav-item"><%= link_to "EO Culture", "/EO", class: "nav-link" %></li>
+		    <li class="nav-item"><%= link_to "Tenets", tenets_path, class: "nav-link" %></li>
+		    <li class="nav-item"><%= link_to "Development Plan", "#", class: "nav-link disabled" %></li>
+		    <li class="nav-item"><%= link_to "Coaches' Guide", "#", class: "nav-link disabled" %></li>
+		    <li class="nav-item"><%= link_to "Glossary", glossaries_path, class: "nav-link" %></li>
+		    <li class="nav-item"><%= link_to "Drills", drills_path, class: "nav-link" %></li>
+		    <li class="nav-item"><%= link_to "Playbook", "#", class: "nav-link disabled" %></li>
+				<li class="nav-item"><%= link_to "Submit a Drill", new_drill_path, class: "nav-link" %></li>
+				<% if current_user.admin? %>
+	        <div id="navAccordionx" data-children=".adminitem">
+					  <div class="adminitem">
+					    <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-parent="#navAccordionx" href="#navAccordion0" aria-expanded="false" aria-controls="navAccordion0">Admin Actions<span class="caret"></span></a></li>
+					    <div id="navAccordion0" class="collapse" role="tabpanel">
+					      <p class="mb-3">
+			            <li class="nav-item"><%= link_to "Manage Users", users_path, class: "nav-link" %></li>
+			            <li class="nav-item"><%= link_to "Manage Drills", drills_path, class: "nav-link" %></li>
+			            <li class="nav-item"><%= link_to "Manage Fundamentals", fundamentals_path, class: "nav-link" %></li>
+			            <li class="nav-item"><%= link_to "Manage Tools", tools_path, class: "nav-link" %></li>
+			            <li class="nav-item"><%= link_to "Manage Positions", positions_path, class: "nav-link" %></li>
+					      </p>
+					    </div>
+					  </div>
+					</div>
+	      <% end %>
+				<div id="navAccordion" data-children=".signinitem">
+				  <div class="signinitem">
+				    <p class="navbar-text text-white">Signed in as &nbsp<a data-toggle="collapse" data-parent="#navAccordion" href="#navAccordion1" aria-expanded="false" aria-controls="navAccordion1"><%= current_user.username %><span class="caret"></span></a></p>
+				    <div id="navAccordion1" class="collapse" role="tabpanel">
+			        <li class="nav-item"><%= link_to "Edit profile", edit_user_path(id:current_user.id), class: "nav-link" %></li>
+		          <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-link" %></li>
 				    </div>
 				  </div>
 				</div>
-      <% end %>
-			<div id="navAccordion" data-children=".signinitem">
-			  <div class="signinitem">
-			    <p class="navbar-text text-white">Signed in as &nbsp<a data-toggle="collapse" data-parent="#navAccordion" href="#navAccordion1" aria-expanded="false" aria-controls="navAccordion1"><%= current_user.username %><span class="caret"></span></a></p>
-			    <div id="navAccordion1" class="collapse" role="tabpanel">
-		        <li class="nav-item"><%= link_to "Edit profile", edit_user_path(id:current_user.id), class: "nav-link" %></li>
-	          <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-link" %></li>
-			    </div>
-			  </div>
-			</div>
-		<% end %>
-	</ul>
+			<% end %>
+    </ul>
+  </div>
 </nav>
+
+
+
+
+	
 
