@@ -1,0 +1,30 @@
+<div class="container">
+  <h3 class="text-white">Offensive Playbook</h3>
+  <% if can? :create, Offense %>
+    <%= link_to 'New Offense', new_offense_path %>
+  <% end %>
+
+  <div class="card-deck">
+    <% @offenses.each do |offense| %>
+      <div class="card mb-3" style="max-width: 20rem;">   
+      <%= image_tag "no_photo.svg", class: "card-img-top", alt: "Card image cap"%>
+        <div class="card-body">
+          <h4 class="card-title"><%= offense.name %><br />
+          <small class="text-muted" style="font-size:.85rem;"><%= offense.situation %></small></h4>
+          <p class="card-text"><%= offense.description %></p>
+          <%= link_to 'Read More...', offense, class: "btn btn-primary", style: "margin-bottom:15px;"%>
+          <% if can? :manage, offense %>
+            <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item"><%= link_to 'Edit', edit_offense_path(offense) %> |
+              <%= link_to 'Destroy', offense, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          <% end %>
+        </div>
+        <div class="card-footer text-center">
+          <small class="text-muted"><%= offense.formation %></small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

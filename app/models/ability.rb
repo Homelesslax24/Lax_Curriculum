@@ -12,6 +12,7 @@ class Ability
         can :manage, Tool
         can :manage, Fundamental
         can :manage, Glossary
+        can :manage, Offense
       else
         can :read, User
         can [:read, :create], Drill

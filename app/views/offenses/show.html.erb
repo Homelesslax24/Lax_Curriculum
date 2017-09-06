@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+  			<h3><strong><%= @offense.name %></strong></h3>
+ 				<p><strong>Created By: </strong><%= link_to @user.find_by_id(@offense.user_id).username, user_path(@offense.user_id) %></p>
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<p><strong>Type: </strong><%= @offense.situation %></p>
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<p><strong>Formation: </strong><%= @offense.formation %></p>
+			</div>
+			<div class="col-xs-12 col-md-12">
+				<p><strong>Description: </strong><%= @offense.description %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<p class="center">
+					<% if can? :update, @offense %>
+						<%= link_to 'Edit', edit_offense_path(@offense) %> |
+					<% end %>
+					<%= link_to 'Back to the Playbook', offenses_path %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

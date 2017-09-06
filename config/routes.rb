@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :offenses
   resources :glossaries
   resources :fundamentals
   resources :tools

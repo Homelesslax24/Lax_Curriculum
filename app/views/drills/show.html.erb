@@ -4,47 +4,41 @@
 			<div class="col-xs-12 col-md-5">
 				<h3><strong><%= @drill.title %></strong></h3>
 				<!-- <p><strong>Link: </strong><%= link_to "Click here for the video", @drill.link, target: "_blank" %><br /> -->
-				<strong>Created By: </strong><%= link_to @user.find_by_id(@drill.user_id).username, user_path(@drill.user_id) %></p>
+				<p><strong>Created By: </strong><%= link_to @user.find_by_id(@drill.user_id).username, user_path(@drill.user_id) %></p>
 			</div>
 			<div class="col-xs-12 col-md-12">
 				<p><strong>Description: </strong><%= @drill.description %></p>
 			</div>
-			<% unless @drill.link == "N/A" %>
-				<div class="col-xs-12 col-md-5">
-			<% end %>
-				<div class="col-xs-12">
-					<p><strong>Beginner: </strong><%= @drill.beginner %></p>
-				</div>
-				<div class="col-xs-12">
-					<p><strong>Intermediate: </strong><%= @drill.intermediate %></p>
-				</div>
-				<div class="col-xs-12">
-					<p><strong>Advanced: </strong><%= @drill.advanced %></p>
-				</div>
-				<div class="col-xs-12">
-					<p><strong>Fundamentals: </strong>
-						<% @drill.fundamentals.each do |f| %>
-							<%= f.name %>, 
-						<% end %>
-					</p>
-				</div>
-				<div class="col-xs-12">
-					<p><strong>Tools: </strong>
-						<% @drill.tools.each do |t| %>
-							<%= t.name %>, 
-						<% end %>
-					</p>
-				</div>
-				<div class="col-xs-12">
-					<p><strong>Players: </strong>
-						<% @drill.positions.each do |p| %>
-							<%= p.name %>, 
-						<% end %>
-					</p>
-				</div>
-			<% unless @drill.link == "N/A" %>
-				</div>
-			<% end %>
+			<div class="col-xs-12 col-md-12">
+				<p><strong>Beginner: </strong><%= @drill.beginner %></p>
+			</div>
+			<div class="col-xs-12 col-md-12">
+				<p><strong>Intermediate: </strong><%= @drill.intermediate %></p>
+			</div>
+			<div class="col-xs-12 col-md-12">
+				<p><strong>Advanced: </strong><%= @drill.advanced %></p>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<p><strong>Fundamentals: </strong>
+					<% @drill.fundamentals.each do |f| %>
+						<%= f.name %>, 
+					<% end %>
+				</p>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<p><strong>Tools: </strong>
+					<% @drill.tools.each do |t| %>
+						<%= t.name %>, 
+					<% end %>
+				</p>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<p><strong>Players: </strong>
+					<% @drill.positions.each do |p| %>
+						<%= p.name %>, 
+					<% end %>
+				</p>
+			</div>
 			<% unless @drill.link == "N/A" %>
 				<div class="col-xs-12 col-md-7">
 					<div class="video-container">
@@ -59,7 +53,7 @@
 					<% if can? :update, @drill %>
 						<%= link_to 'Edit', edit_drill_path(@drill) %> |
 					<% end %>
-					<%= link_to 'Drill List', drills_path %>
+					<%= link_to 'Back to Drills', drills_path %>
 				</p>
 			</div>
 		</div>

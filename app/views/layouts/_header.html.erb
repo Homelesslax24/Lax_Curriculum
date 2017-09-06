@@ -19,7 +19,16 @@
 		    <li class="nav-item"><%= link_to "Coaches' Guide", "#", class: "nav-link disabled" %></li>
 		    <li class="nav-item"><%= link_to "Glossary", glossaries_path, class: "nav-link" %></li>
 		    <li class="nav-item"><%= link_to "Drills", drills_path, class: "nav-link" %></li>
-		    <li class="nav-item"><%= link_to "Playbook", "#", class: "nav-link disabled" %></li>
+				<div id="navAccordionpb" data-children=".playbookitem">
+				  <div class="playbookitem">
+				    <li class="nav-item"><a class="nav-link" data-toggle="collapse" data-parent="#navAccordionpb" href="#navAccordion2" aria-expanded="false" aria-controls="navAccordion2">Playbook<span class="caret"></span></a></li>
+				    <div id="navAccordion2" class="collapse" role="tabpanel">
+				      <p class="mb-3">
+		            <li class="nav-item"><%= link_to "Offense", offenses_path, class: "nav-link" %></li>
+				      </p>
+				    </div>
+				  </div>
+				</div>
 				<li class="nav-item"><%= link_to "Submit a Drill", new_drill_path, class: "nav-link" %></li>
 				<% if current_user.admin? %>
 	        <div id="navAccordionx" data-children=".adminitem">

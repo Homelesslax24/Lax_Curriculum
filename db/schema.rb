@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903153306) do
+ActiveRecord::Schema.define(version: 20170906020219) do
 
   create_table "drills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                      default: "",    null: false
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(version: 20170903153306) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "offenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                      default: "", null: false
+    t.string   "situation",                 default: "", null: false
+    t.string   "formation",                 default: "", null: false
+    t.text     "description", limit: 65535
+    t.integer  "user_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.index ["user_id"], name: "index_offenses_on_user_id", using: :btree
+  end
+
   create_table "positions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -88,4 +99,5 @@ ActiveRecord::Schema.define(version: 20170903153306) do
   end
 
   add_foreign_key "drills", "users"
+  add_foreign_key "offenses", "users"
 end

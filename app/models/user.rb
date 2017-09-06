@@ -4,4 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
   has_many :drills 
+  has_many :offenses
 end
