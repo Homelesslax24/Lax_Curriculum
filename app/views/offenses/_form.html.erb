@@ -17,13 +17,17 @@
       <%= f.label :name %><br>
       <%= f.text_field :name, class: "form-control", autofocus: true, placeholder:"Drill Title"  %>
     </div>
-    <div class="form-group col-xs-12 col-md-4">
+    <div class="form-group col-xs-12 col-md-2">
       <%= f.label "Type" %><br>
       <%= f.select :situation, ['6v6', 'EMO', 'Inbounds'], {}, class: "form-control", autofocus: true %>
     </div>
-    <div class="form-group col-xs-12 col-md-4">
+    <div class="form-group col-xs-12 col-md-2">
       <%= f.label :formation %><br>
       <%= f.select :formation, ['2-3-1', '1-4-1', '2-2-2', '1-3-2', '3-1-2', '3-2-1', '4-2', '3-3', '3-3 Open', '2-2-2 Open'], {}, class: "form-control", autofocus: true %>
+    </div>
+    <div class="form-group col-xs-12 col-md-4">
+      <%= f.label "Upload a Diagram" %><br>
+      <%= f.file_field :diagram, class: "form-control-file", autofocus: true %>
     </div>
     <div class="form-group col-xs-12 col-md-12">
       <%= f.label :description %><br>

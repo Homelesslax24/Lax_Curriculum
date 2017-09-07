@@ -70,6 +70,6 @@ class OffensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offense_params
-      params.require(:offense).permit(:name, :situation, :formation, :description)
+      params.require(:offense).permit(:name, :situation, :formation, :description, :diagram)
     end
 end
