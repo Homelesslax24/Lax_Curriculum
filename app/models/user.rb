@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :drills 
   has_many :offenses
+  has_many :defenses
 end
