@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<h3><strong><%= @defense.name %></strong></h3>
+				<p><strong>Created By: </strong><%= link_to @user.find_by_id(@defense.user_id).username, user_path(@defense.user_id) %></p>
+			</div>
+			<div class="col-xs-12 col-md-3">
+				<p><strong>Situation:</strong><%= @defense.situation %></p>
+			</div>
+			<div class="col-xs-12 col-md-12">
+				<p><strong>Description:</strong><%= @defense.description %></p>
+			</div>
+			<% if @defense.diagram_file_name? %>
+				<div class="col-xs-12 col-md-12 diagram-show">
+					<div class="diagram-container">
+						<%= image_tag @defense.diagram.url, class: "diagram-img" %>
+					</div>
+				</div>
+			<% else %>
+				<div class="col-xs-12 col-md-12">
+					<p>No Diagram Available</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<p class="center">
+					<% if can? :update, @defense %>
+						<%= link_to 'Edit', edit_defense_path(@defense) %> |
+					<% end %>
+					<%= link_to 'Back to the Playbook', defenses_path %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

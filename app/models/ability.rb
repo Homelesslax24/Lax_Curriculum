@@ -13,6 +13,7 @@ class Ability
         can :manage, Fundamental
         can :manage, Glossary
         can :manage, Offense
+        can :manage, Defense
       else
         can :read, User
         can [:read, :create], Drill

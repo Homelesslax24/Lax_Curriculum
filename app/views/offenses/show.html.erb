@@ -14,11 +14,17 @@
 			<div class="col-xs-12 col-md-12">
 				<p><strong>Description: </strong><%= @offense.description %></p>
 			</div>
-			<div class="col-xs-12 col-md-12 diagram-show">
-				<div class="diagram-container">
-					<%= image_tag @offense.diagram.url, class: "diagram-img" %>
+			<% if @offense.diagram_file_name? %>
+				<div class="col-xs-12 col-md-12 diagram-show">
+					<div class="diagram-container">
+						<%= image_tag @offense.diagram.url, class: "diagram-img" %>
+					</div>
 				</div>
-			</div>
+			<% else %>
+				<div class="col-xs-12 col-md-12">
+					<p>No Diagram Available</p>
+				</div>
+			<% end %>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">

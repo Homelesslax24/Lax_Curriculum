@@ -1,0 +1,31 @@
+<div class="container">
+  <h3 class="text-white">Defensive Playbook</h3>
+  <% if can? :create, Offense %>
+    <p><%= link_to 'New Defense', new_defense_path %></p>
+  <% end %>
+  <div class="card-deck">
+    <% @defenses.each do |defense| %>
+      <div class="card mb-3" style="max-width: 20rem;">   
+      <% if defense.diagram_file_name? %>
+        <%= image_tag defense.diagram.url, class: "card-img-top", alt: "Card image cap"%>
+      <% else %>
+        <%= image_tag "no_photo.svg", class: "card-img-top", alt: "Card image cap"%>
+      <% end %>
+        <div class="card-body">
+          <h4 class="card-title"><%= defense.name %><br /></h4>
+          <p class="card-text"><%= defense.description %></p>
+          <%= link_to 'Read More...', defense, class: "btn btn-primary", style: "margin-bottom:15px;"%>
+          <% if can? :manage, defense %>
+            <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item"><%= link_to 'Edit', edit_defense_path(defense) %> |
+              <%= link_to 'Destroy', defense, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          <% end %>
+        </div>
+        <div class="card-footer text-center">
+          <small class="text-muted"><%= defense.situation %></small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
