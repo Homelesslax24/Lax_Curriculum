@@ -2,6 +2,9 @@
   <div class="jumbotron">
     <div class="row">
       <h3>Manage Users</h3>
+      <% if can? :create, User %>     
+        <p class="right"><%= link_to 'Create New User', new_user_path, class: "btn btn-default" %></p>
+      <% end %>
       <div class="table-responsive">
         <table class="table table-hover">
           <thead>
@@ -52,13 +55,6 @@
             <% end %>
           </tbody>
         </table>
-
-        <br />
-        
-        <% if can? :create, User %>     
-          <p class="right"><%= link_to 'Create New User', new_user_path, class: "btn btn-default" %></p>
-        <% end %>
-
       </div>
     </div>
   </div>
